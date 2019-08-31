@@ -1,0 +1,11 @@
+body
+{
+	font-family: Verdana;
+	font-size: 12px;
+	color: black;
+	font-family: 'Lato', sans-serif;
+	/*Background pattern from */
+	background-image: url("src/assets/tlo.png");
+	background-position: center;
+	background-size: cover;
+}

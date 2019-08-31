@@ -1,0 +1,56 @@
+<div class="que">
+
+  <form #formaddtest="ngForm" class="test-container" (ngSubmit)="addTest(formaddtest)">
+    <div class="form-group">
+      <label for="question">Wpisz pytanie</label>
+      <textarea class="form-control" id="question" rows="3" ngModel name="question"></textarea>
+    </div>
+
+    <!-- <div class="form-group">
+      <label for="attachment">Dodaj załącznik do pytania</label>
+      <input type="file" class="form-control-file" id="attachment" #attachment (change)="processfile(attachment)">
+    </div> -->
+    <div class="custom-controls-stacked">
+      <div class="custom-control custom-radio mb-3">
+        <input type="checkbox" ngModel name="closed" value="value"
+          onclick="document.getElementById('closed').style.display = this.checked ? 'none' : 'block'; this.form.elements['answerA'].disabled = this.form.elements['answerB'].disabled = this.form.elements['answerC'].disabled = this.form.elements['answerD'].disabled  = this.checked">Odpowiedż
+        zamknięta
+        <div id="closed">
+
+          <br>
+          <span>Odpowiedź A</span>
+          <input type="text" ngModel name="answerA" class="form-control">
+          <span>Odpowiedź B</span>
+          <input type="text" ngModel name="answerB" class="form-control">
+          <span>Odpowiedź C</span>
+          <input type="text" ngModel name="answerC" class="form-control">
+          <span>Odpowiedź D</span>
+          <input type="text" ngModel name="answerD" class="form-control">
+          
+          <label for="correctAnswer">Poprawna odpowiedź</label>
+          <select type="text" ngModel name="correctAnswer" class="form-control">
+            <option>A</option>
+            <option>B</option>
+            <option>C</option>
+            <option>D</option>
+          </select>
+        </div>
+        <br>
+        <br>
+        <div class="custom-control custom-checkbox mb-3">
+          <input type="checkbox" ngModel name="open" value="wartość" onclick=""> Odpowiedż otwarta
+          <div id="otwarta"></div>
+          <br>
+          <br>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="form-group">
+      <input type="submit" value="Następne pytanie" class="btn float-right login_btn">
+    </div>
+  </form>
+  <button class="btn btn-default btn-mg "  [routerLink]="['/test']" type="button">Dodaj test </button>
+
+
+</div>

@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03"
+    aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" [routerLink]="['/login']">Sprawdź Wiedzę</a>
+
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item ">
+        <a class="nav-link disabled" [routerLink]="['/online']"> Start </a>
+      </li>
+      <li class="nav-item" *ngIf="isAdmin">
+        <a class="nav-link disabled" [routerLink]="['/addclass']">Dodaj Klasę</a>
+      </li>
+      <li class="nav-item" *ngIf="isAdmin">
+        <a class="nav-link disabled" [routerLink]="['/classeslist']">Twoje Klasy</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled " [routerLink]="['/content']">Dziennik</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled " [routerLink]="['/diary']">Przedmioty</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <a class="nav-link disabled" [routerLink]="['/profil']">Profil</a>
+      <a class="nav-link disabled" (click)="logout()" [routerLink]="['/login']">Wyloguj</a>
+    </form>
+  </div>
+</nav>

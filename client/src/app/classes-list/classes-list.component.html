@@ -1,0 +1,29 @@
+<div class="classeslist ">
+
+
+
+  <pre>
+  <p>Twoje klasy</p>
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <td><b>Przedmiot</b></td>
+            <td><b>Opis</b></td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let position of classeslist">
+            <td (click)=showSubjectAdmin($event)>
+              {{position.nameS}}
+            </td>
+            <td>
+              {{position.description}}
+            </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+</pre>
+
+</div>

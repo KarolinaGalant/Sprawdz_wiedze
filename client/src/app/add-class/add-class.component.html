@@ -1,0 +1,23 @@
+
+ <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<div class="addClass">
+
+  <h2>Nowa klasa</h2>
+
+  <form  #formaddclass = "ngForm" class="class-container" (ngSubmit)="addClass(formaddclass)" novalidate>
+  <div class="form-group">
+
+    <label>Nazwa Klasy</label>
+    <input type="text" class="form-control"  ngModel name="nameS" required #className="ngModel">
+
+    <label>Opis klasy</label>
+    <textarea class="form-control" placeholder="Opis..." ngModel name="description" required #description="ngModel" rows="3"></textarea>
+    
+    </div>
+  <br>
+  <input type="submit" value="Zapisz" class="btn btn-default"> 
+  </form>
+
+</div>
+
+

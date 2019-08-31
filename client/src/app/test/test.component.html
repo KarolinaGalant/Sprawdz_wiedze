@@ -1,0 +1,57 @@
+<div class="test">
+
+    <p>
+
+    Test: {{testName[0].testName}}
+    </p>
+    <pre>
+    <!-- nazwa testu z bazy wybrana -->
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <td><b>Pytanie</b></td>
+            <td><b>Odpowiedzi</b></td>
+            <td><b></b></td>
+            <td><b></b></td>
+            <td><b></b></td>
+            <td><b>Poprawna odpowiedź</b></td>
+          </tr>
+          <tr>
+                <td><b></b></td>
+                <td><b>A</b></td>
+                <td><b>B</b></td>
+                <td><b>C</b></td>
+                <td><b>D</b></td>
+                <td><b></b></td>
+              </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let test of test">
+            <td >
+{{test.question}}
+            </td>
+            <td>
+{{test.answerA}}
+            </td>
+            <td>
+{{test.answerB}}
+            </td>
+            <td>
+{{test.answerC}}
+            </td>
+            <td>
+{{test.answerD}}
+            </td> 
+            <td>
+{{test.correctAnswer}}
+            </td>            
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+</pre>
+
+
+</div>

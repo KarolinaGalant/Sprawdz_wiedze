@@ -1,0 +1,40 @@
+<div class="register">
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+          <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+        <div class="container">
+          <div class="d-flex justify-content-center h-100">
+            <div class="card">
+              <div class="card-header">
+                <a href='/regiter'><h3>Zarejestruj się</h3></a> 
+              </div>
+    
+              <div class="card-body">
+                  <form  #formreg = "ngForm" class="login-container" (ngSubmit)="Registration(formreg)">
+
+                    <div class="input-group form-group">
+                       <input type="text" class="form-control" placeholder="Imię"ngModel name="name">
+                    </div>
+                    <div class="input-group form-group">
+                      <input type="text" class="form-control" placeholder="Nazwisko" ngModel name="surname">
+                    </div>
+                    <div class="input-group form-group">
+                        <input type="text" class="form-control" placeholder="E-mail" ngModel name="mail">
+                      </div>
+                  <div class="input-group form-group">
+                    <input type="text" class="form-control" placeholder="login" ngModel name="login">
+                  </div>
+                  <div class="input-group form-group">
+                    <input type="password" class="form-control" placeholder="Hasło" ngModel name="password">
+                  </div>
+
+                  <div class="form-group">
+                    <input type="submit" value="Zarejestruj" class="btn float-right login_btn">
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>

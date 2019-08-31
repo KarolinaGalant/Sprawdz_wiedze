@@ -1,0 +1,15 @@
+<div class="back">
+
+  <h2>Nowy test</h2>
+
+  <form #formaddtest="ngForm" class="testname-container" (ngSubmit)="addTestName(formaddtest)" >
+    <div class="form-group">
+      <br>
+      <br>
+      <textarea class="form-control" id="testName" rows="1" placeholder="Nazwa testu" ngModel name="testName"></textarea>
+      <br>
+    </div>
+    <input type="submit" value="Dodaj pytania" class="btn btn-default" >
+    
+  </form>
+</div>

@@ -1,0 +1,22 @@
+<div class="subject">
+
+
+
+  <h1>
+    {{name}}
+    {{myClass | json}}
+  </h1>
+
+  <div *ngIf="name; else elseBlock">
+    <div *ngFor="let student of myClass">
+      {{myClass.nameS}}
+    </div>
+    <p>Opuść Klasę:<button class="btn btn-default btn-lg " type="button">Usuń </button></p>
+    
+
+  </div>
+  <ng-template #elseBlock>
+    <p>Dodaj się do klasy: <button class="btn btn-default btn-lg " type="button">Dodaj </button></p>
+  </ng-template>
+  `
+</div>

@@ -1,0 +1,30 @@
+<div class="subject">
+
+  <p>
+    {{ name }}
+
+
+  </p>
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <td><b>Imię</b></td>
+          <td><b>Nazwisko</b></td>
+          <td><b>Oceny</b></td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let student of student">
+          <td>
+            {{student.name}}
+          </td>
+          <td>
+            {{student.surname}}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <button [routerLink]="['/addtest']" class="btn btn-default btn-lg " type="button" >Dodaj test</button>
+</div>

@@ -1,0 +1,165 @@
+<!-- <br/>
+<br/>
+<br/>
+<br/>
+
+<div class="content">
+
+  
+  <div class="container">
+    <input type="text" class="form-control" placeholder="Nazwa klasy" formControlName="Class">
+                
+    <button type="button" (click)="clickListener($event)">Dodaj</button>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">Example select</label>
+    <select class="form-control" id="exampleFormControlSelect1">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
+  <div class="form-group">
+      <label for="exampleFormControlTextarea1">Example textarea</label>
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+  </div>
+  <br>
+  <div class="form-group">
+      <label for="exampleFormControlSelect2">Odpowiedź wielokrotnego wyboru</label>
+      <select multiple class="form-control" id="exampleFormControlSelect2">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+      </select>
+    </div>
+    <br>
+    <label class="center-block">
+        <span>Jednostka miary:</span>
+        <select 
+          formControlName="unitOfMeasure"
+          class="form-control" 
+        >
+          <option [value]="">-- nie wybrano --</option>
+          <option [value]="'gram'">Gram</option>
+          <option [value]="'liter'">Litr</option>
+          <option [value]="'piece'">Sztuka</option>
+        </select>
+      </label>
+      <div class="form-group">
+          <label for="odp1">Odpowiedź A</label>
+          <textarea class="form-control" id="odp1" rows="1"></textarea>
+        </div>
+      
+        <div class="form-group">
+          <label for="odp2">Odpowiedź B</label>
+          <textarea class="form-control" id="odp2" rows="1"></textarea>
+        </div>
+      
+        <div class="form-group">
+            <label for="odp3">Odpowiedź C</label>
+            <textarea class="form-control" id="odp3" rows="1"></textarea>
+          </div>
+      
+          <div class="form-group">
+            <label for="odp4">Odpowiedź D</label>
+            <textarea class="form-control" id="odp4" rows="1"></textarea>
+          </div>
+
+
+
+
+  <h2>Nowy test</h2>
+  <br>
+<form 
+  novalidate 
+  (ngSubmit)="onSubmit(product)"
+  [formGroup]="product"
+  class="form-group"
+>
+<div class="form-group">
+  <label for="exampleFormControlTextarea1">Wpisz pytanie</label>
+  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+</div>
+<form>
+  <div class="form-group">
+    <label for="exampleFormControlFile1">Dodaj załącznik do pytania</label>
+    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+  </div>
+</form>
+
+<br>
+<input type="checkbox" name="nazwa" value="wartość" onclick="document.getElementById('otwarta').style.display = this.checked ? 'none' : 'block'; this.form.elements['nazwa1'].disabled = this.checked">Odpowiedż otwarta
+<div id="otwarta">
+  <textarea class="form-control" id="nazwa1" rows="3"></textarea>
+</div>
+<br>
+<input type="checkbox" name="nazwa" value="wartość" onclick="document.getElementById('zamknieta').style.display = this.checked ? 'none' : 'block'; this.form.elements['nazwa2'].disabled = this.form.elements['nazwa3'].disabled = this.form.elements['nazwa4'].disabled  = this.checked">Odpowiedż zamknięta
+<div id="zamknieta">
+  <span>Odpowiedź A</span>
+  <input type="text" name="nazwa2" class="form-control">
+  <span>Odpowiedź B</span>
+  <input type="text" name="nazwa2" class="form-control">
+  <span>Odpowiedź C</span>
+  <input type="text" name="nazwa2" class="form-control">
+  <span>Odpowiedź D</span>
+  <input type="text" name="nazwa2" class="form-control">
+</div>
+  <br>
+
+  <br>
+  <button type="submit" class="btn btn-dark">Dodaj </button>
+</form> -->
+<div class="content">
+
+  <pre>
+<p>Oceny zdobyte w poprzednich testach</p>
+    <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+            <td><b>Przedmiot</b></td>
+            <td><b>Ocena</b></td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let position of rating">
+              <td>
+{{position.nameS}}
+              </td>
+              <td>
+{{position.rating}}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+<p>Dostępne testy do wykonania</p>
+      <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                
+                  <td><b>Przedmiot</b></td>
+                  <td><b>Test</b></td>
+              
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let position of testList">
+                <td>
+{{position.nameS}}
+                </td>
+      
+                <td>
+{{position.idTest}}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+  </pre>
+
+</div>

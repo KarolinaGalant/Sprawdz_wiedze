@@ -1,0 +1,56 @@
+.register{
+    height: 880px;
+    }
+    .container{
+    padding: 200px;
+    margin-top: auto;
+    margin-bottom: auto;
+    align-content: center;
+    }
+    
+    .card{
+    height: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 400px;
+    background-color: rgba(0,0,0,0.5) !important;
+    }
+    .card-header h3{
+    color: white;
+    text-align: center;
+    }
+    .card-header a{
+       text-decoration: none; 
+    }
+    
+    input:focus{
+    outline: 0 0 0 0  !important;
+    box-shadow: 0 0 0 0 !important;
+    
+    }
+    
+    .remember{
+    color: white;
+    }
+    
+    .remember input
+    {
+    width: 20px;
+    height: 20px;
+    margin-left: 15px;
+    margin-right: 5px;
+    }
+    
+    .login_btn:hover{
+    color: black;
+    background-color: white;
+    }
+    
+    .links{
+    color: white;
+    }
+    
+    .links a{
+    margin-left: 4px;
+    }
+    

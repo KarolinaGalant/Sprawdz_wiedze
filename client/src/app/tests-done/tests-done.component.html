@@ -1,0 +1,39 @@
+<div class="test">
+
+  <h1>
+
+    Test: {{testName[0].testName}}
+
+  </h1>
+  <pre>
+    <form #formaddanswer="ngForm" class="addanswer-container" (ngSubmit)="addAnswer(formaddanswer)" >
+      <div class="form-group">
+        <div *ngFor="let test of tests; let i = index">
+          <div class="quest">
+            Zadanie {{i+1}} {{test.question}}
+        
+            A) {{test.answerA}}
+
+            B) {{test.answerB}}
+
+            C) {{test.answerC}}
+
+            D) {{test.answerD}}
+
+            Poprawna Odpowiedź: <select type="text" ngModel name="answer" class="form-control">
+                <option>A</option>
+                <option>B</option>
+                <option>C</option>
+                <option>D</option>
+              </select>
+            
+            </div>
+          </div>
+        </div>
+        <input type="submit" value="Zakończ test" class="btn btn-default" >
+      </form>
+
+  </pre>
+
+
+</div>

@@ -4,8 +4,34 @@
 
   <h1>
     {{name}}
-    {{myClass | json}}
+   
   </h1>
+
+  
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+
+          <td><b>Test</b></td>
+          <td><b>Ocena</b></td>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let test of tests">
+          <td (click)="onSelectSubject($event, test)">
+            {{test.testName}}
+
+          </td>
+
+          <td>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
 
   <div *ngIf="name; else elseBlock">
     <div *ngFor="let student of myClass">

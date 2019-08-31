@@ -55,7 +55,7 @@ module.exports.classesList = (classesList) => {
 }
 module.exports.allclasseslist = (allclasseslist) => {
     return new Promise((resolve, reject) => {
-        constants.ConnectToDB.query('SELECT nameS, description FROM subject ', allclasseslist, (err, rows, fields) => {
+        constants.ConnectToDB.query('SELECT idSubject, nameS, description FROM subject ', allclasseslist, (err, rows, fields) => {
             if (err) {
                 throw err;
             }

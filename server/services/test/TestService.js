@@ -22,12 +22,16 @@ module.exports.getTestList =  (testList) => {
 module.exports.addTestName =  (testName) => {
     return TestRepository.addTestName(testName);
 }
-module.exports.getTestName =  (testName) => {
-    return TestRepository.getTestName(testName);
+module.exports.getTestName =  (testName, idSubject) => {
+    return TestRepository.getTestName(testName, idSubject);
 }
-module.exports.getDoneTest =  (test) => {
-    return TestRepository.getDoneTest(test);
+module.exports.getDoneTest =  (test, idTest) => {
+    return TestRepository.getDoneTest(test, idTest);
 }
 module.exports.addAnswer =  (answer) => {
     return TestRepository.addAnswer(answer);
+}
+
+module.exports.getTestNameById =  (testName, idTest) => {
+    return TestRepository.getTestNameById(testName, idTest);
 }

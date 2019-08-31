@@ -22,6 +22,8 @@ router.post('/addTestName', UserController.addTestName);
 router.post('/getTestName', UserController.getTestName);
 router.post('/getDoneTest', UserController.getDoneTest);
 router.post('/addAnswer', UserController.addAnswer);
+router.post('/getTestNameById', UserController.getTestNameById);
+
 
 module.exports = router;
 

@@ -31,9 +31,9 @@ module.exports.getTest = (test) => {
         });
     })
 }
-module.exports.getDoneTest = (test) => {
+module.exports.getDoneTest = (test, idTest) => {
     return new Promise((resolve, reject) => {
-        constants.ConnectToDB.query('SELECT idQuestion, question, answerA, answerB, answerC, answerD FROM closetests WHERE idTest=1 ', test, (err, rows, fields) => {
+        constants.ConnectToDB.query('SELECT idQuestion, question, answerA, answerB, answerC, answerD FROM closetests WHERE idTest='+(idTest+' '), test, (err, rows, fields) => {
             if (err) {
                 throw err;
             }
@@ -78,9 +78,9 @@ module.exports.getTestList = (testList) => {
 
 
 }
-module.exports.getTestName = (testName) => {
+module.exports.getTestName = (testName, subjectId) => {
     return new Promise((resolve, reject) => {
-        constants.ConnectToDB.query('SELECT testName FROM testname WHERE idTest = 1 ', testName, (err, rows, fields) => {
+        constants.ConnectToDB.query('SELECT tn.idTest, tn.testName  FROM testname as tn INNER JOIN subjecttest as st ON tn.idTest = st.idTest WHERE st.idsubject='+subjectId, testName, (err, rows, fields) => {
             if (err) {
                 throw err;
             }
@@ -96,6 +96,26 @@ module.exports.getTestName = (testName) => {
 
 
 }
+
+module.exports.getTestNameById = (testName, testId) => {
+    return new Promise((resolve, reject) => {
+        constants.ConnectToDB.query('SELECT tn.idTest, tn.testName  FROM testname as tn  WHERE tn.idTest='+testId, testName, (err, rows, fields) => {
+            if (err) {
+                throw err;
+            }
+            else {
+                console.log('succesed');
+                console.log(rows);
+                resolve(rows)
+            }
+
+        });
+    })
+    
+
+
+}
+
 module.exports.addTestName = (testName) => {
     return new Promise((resolve, reject) => {
         constants.ConnectToDB.query('INSERT INTO testName SET ?  ', testName, (err, rows, fields) => {

@@ -43,4 +43,18 @@ export class DataService {
     return localStorage.getItem('idQuestion');
   }
 
+  public setTestId(testId: number){
+    localStorage.setItem('testId', testId + '');
+  }
+
+  public getTestId(){
+    return localStorage.getItem('testId');
+  }
+
+  public getSubjectId() {
+    return localStorage.getItem('subjectId');
+  }
+  public setSubjectId(subjectid: string) {
+     localStorage.setItem('subjectId', subjectid);
+  }
 }

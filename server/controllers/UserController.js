@@ -54,7 +54,7 @@ exports.getTest = (req,res) => {
     })
 };
 exports.getDoneTest = (req,res) => {
-    TestService.getDoneTest(req.body).then((test)=>{
+    TestService.getDoneTest(req.body,req.query.idTest).then((test)=>{
         res.json(test);    
     })
 };
@@ -74,7 +74,7 @@ exports.addTestName = (req,res) => {
     })
 };
 exports.getTestName = (req,res) => {
-    TestService.getTestName(req.body).then((testName)=>{
+    TestService.getTestName(req.body, req.query.idSubject).then((testName)=>{
         res.json(testName);    
     })
 };
@@ -97,6 +97,12 @@ exports.getSubject = (req,res) => {
 exports.getMyClass = (req,res) => {
     GroupService.getMyClass(req.body).then((getMyClass)=>{
         res.json(getMyClass);    
+    })
+};
+
+exports.getTestNameById = (req,res) => {
+    TestService.getTestNameById(req.body, req.query.idTest).then((testName)=>{
+        res.json(testName);    
     })
 };
 

@@ -13,7 +13,7 @@
       </thead>
       <tbody>
         <tr *ngFor="let classes of allclasseslist">
-          <td (click)=showSubject($event)>
+          <td (click)="showSubject($event, classes)">
             {{classes.nameS}}
 
           </td>

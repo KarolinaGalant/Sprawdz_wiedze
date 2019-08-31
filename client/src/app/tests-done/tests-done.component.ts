@@ -26,8 +26,10 @@ export class TestsDoneComponent implements OnInit {
   }
 
   showTestName() {
-    this.configService.getTestName(
+    this.configService.getTestNameById(
+      null,
       localStorage.getItem("testName"),
+      this.dataService.getTestId()
     ).subscribe((testName) => {
       this.testName = testName;
       console.log(this.testName);
@@ -50,6 +52,7 @@ export class TestsDoneComponent implements OnInit {
       localStorage.getItem("answer2"),
       localStorage.getItem("answer3"),
       localStorage.getItem("answer4"),
+      this.dataService.getTestId()
     ).subscribe((tests) => {this.tests = tests;
       // this.answers = new Array(tests.length);
       console.log(this.tests);

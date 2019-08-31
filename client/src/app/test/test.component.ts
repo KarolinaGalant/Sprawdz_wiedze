@@ -34,9 +34,11 @@ export class TestComponent implements OnInit {
     });
 
   }
-  showTestName(){
-    this.configService.getTestName(
+  showTestName() {
+    this.configService.getTestNameById(
+      null,
       localStorage.getItem("testName"),
+      1+''
     ).subscribe((testName) => {
       this.testName = testName;
       console.log(this.testName);

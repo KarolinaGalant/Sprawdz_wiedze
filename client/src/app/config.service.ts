@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { HttpHeaders } from '@angular/common/http';
 import { AddClassResultModel } from './add-class/addClassResultModel';
@@ -86,8 +86,9 @@ export class ConfigService {
     });
   }
 
-  getAllClasses(nameS: string, description: string): Observable<AllClassesResultModel> {
+  getAllClasses(idSubject: number , nameS: string, description: string): Observable<AllClassesResultModel> {
     return this.http.post<AllClassesResultModel>('http://localhost:3000/api/user/allclasseslist', {
+      idSubject,
       nameS,
       description,
     });
@@ -104,15 +105,15 @@ export class ConfigService {
       attachment,
     });
   }
-  getDoneTest(idQuestion: string, question: string, answer1: string, answer2: string, answer3: string, answer4: string): Observable<TestDoneResultModel> {
-    return this.http.post<TestDoneResultModel>('http://localhost:3000/api/user/getDoneTest', {
+  getDoneTest(idQuestion: string, question: string, answer1: string, answer2: string, answer3: string, answer4: string, idTest): Observable<TestDoneResultModel> {
+    return this.http.post<TestDoneResultModel>('http://localhost:3000/api/user/getDoneTest/', {
       idQuestion,
       question,
       answer1,
       answer2,
       answer3,
       answer4,
-    });
+    },{ params: new HttpParams().set('idTest', idTest)} );
   }
   getRating(nameS: string, rating: string): Observable<ContentResultModel> {
     return this.http.post<ContentResultModel>('http://localhost:3000/api/user/getRating', {
@@ -148,16 +149,24 @@ export class ConfigService {
       testName,
     });
   }
-  getTestName(testName: string): Observable<AddTestResultModel> {
+  getTestName(idTest: string, testName: string, idSubject: string): Observable<AddTestResultModel> {
     return this.http.post<AddTestResultModel>('http://localhost:3000/api/user/getTestName', {
-      testName,
-    });
+    idTest,  
+    testName,
+    } ,{ params: new HttpParams().set('idSubject', idSubject + '')} );
   }
   addAnswer(answer: string, idQuestion: string): Observable<AnswerResultModel> {
     return this.http.post<AnswerResultModel>('http://localhost:3000/api/user/addAnswer', {
       answer,
       idQuestion,
     });
+  }
+
+  getTestNameById(idTest: string, testName: string, idTest2: string): Observable<AddTestResultModel> {
+    return this.http.post<AddTestResultModel>('http://localhost:3000/api/user/getTestNameById', {
+    idTest,  
+    testName,
+    } ,{ params: new HttpParams().set('idTest', idTest2 + '')} );
   }
 
 }

@@ -8,11 +8,13 @@ import { DataService } from '../data.service';
 })
 export class HeaderComponent implements OnInit {
   isAdmin: boolean;
+  isStudent: boolean;
 
   constructor(private data: DataService) { }
 
   ngOnInit() {
     this.isAdmin = this.data.isAdmin();
+    this.isStudent = this.data.isStudent();
   }
 
   logout() {

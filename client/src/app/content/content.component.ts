@@ -15,7 +15,7 @@ export class ContentComponent implements OnInit {
   rating: ContentResultModel;
   // date = new Date();
   // constructor(private data: DataService) { }
-  constructor(private configService: ConfigService, private router: Router) { }
+  constructor(private configService: ConfigService, private router: Router, private dataService: DataService ) { }
 
   ngOnInit() {
     this.showRating();
@@ -25,6 +25,7 @@ export class ContentComponent implements OnInit {
      this.configService.getRating(
       localStorage.getItem("nameS"),
       localStorage.getItem("rating"),
+      this.dataService.getIdUser()
      ).subscribe((rating) => {this.rating = rating;
       console.log(this.rating);
     });
@@ -34,8 +35,10 @@ export class ContentComponent implements OnInit {
     this.configService.getTestList(
       localStorage.getItem("idsubject"),
       localStorage.getItem("idTest"),
+      this.dataService.getIdUser()
     ).subscribe((testList) => {this.testList = testList;
       console.log(this.testList);
     })
   }
+  
 }

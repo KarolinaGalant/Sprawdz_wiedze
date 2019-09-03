@@ -14,16 +14,17 @@ export class SubjectComponent implements OnInit {
   name: string = '';
   myClass: ClassesListResultModel;
   tests: any;
-
+  rating: any;
+  
+  
   constructor(private route: ActivatedRoute, private router: Router, private dataService: DataService, private configService: ConfigService) { }
   ngOnInit() {
     console.log(this.route.snapshot.paramMap.get('name'))
     this.route.params.subscribe(n => this.name = n['name']);
     this.check();
-    this.getTestName();
-
+    this.getTestNameSub();
+  
   }
-
   check() {
     this.configService.getMyClass(
       this.dataService.getLogin(),
@@ -32,8 +33,8 @@ export class SubjectComponent implements OnInit {
       console.log(this.myClass);
     });
   }
-  getTestName(){
-    this.configService.getTestName(
+  getTestNameSub(){
+    this.configService.getTestNameSub(
       null,
       null,     
       this.dataService.getSubjectId()
@@ -41,12 +42,27 @@ export class SubjectComponent implements OnInit {
       // this.answers = new Array(tests.length);
       console.log(this.tests);
       });
-
   }
-
   onSelectSubject(event, test: AddTestResultModel){
     this.dataService.setTestId(test.idTest);
     this.router.navigate([`/testdone`]);
   }
+  showTestRating(){
+    this.configService.getTestRating(
+     localStorage.getItem("nameS"),
+     localStorage.getItem("rating"),
+     localStorage.getItem("testName"),
+     this.dataService.getSubjectId(),
+    ).subscribe((rating) => {this.rating = rating;
+     console.log(this.rating);
+   });
+  }
+  // addToClass(){
+  //   this.configService.addToClass(
+  //     this.
+      
+  //   )
+
+  // }
   
 }

@@ -1,21 +1,22 @@
 <div class="test">
 
-    <p>
+  <p>
 
     Test: {{testName[0].testName}}
-    </p>
-    <pre>
+  </p>
+  <pre>
     <!-- nazwa testu z bazy wybrana -->
     <div class="table-responsive">
       <table class="table">
         <thead>
           <tr>
             <td><b>Pytanie</b></td>
-            <td><b>Odpowiedzi</b></td>
+            <td><b>Odp</b></td>
             <td><b></b></td>
             <td><b></b></td>
             <td><b></b></td>
             <td><b>Poprawna odpowiedź</b></td>
+            <td><b>Pytanie otwarte</b></td>
           </tr>
           <tr>
                 <td><b></b></td>
@@ -24,8 +25,11 @@
                 <td><b>C</b></td>
                 <td><b>D</b></td>
                 <td><b></b></td>
+                <td><b></b></td>
+
               </tr>
         </thead>
+
         <tbody>
           <tr *ngFor="let test of test">
             <td >
@@ -45,6 +49,15 @@
             </td> 
             <td>
 {{test.correctAnswer}}
+            </td>   
+            <td>
+        <div *ngIf="test.open==1; else close">  
+          TAK 
+        </div>
+        <ng-template #close> 
+          NIE
+        </ng-template> 
+
             </td>            
             </tr>
           </tbody>

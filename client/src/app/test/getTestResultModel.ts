@@ -1,9 +1,12 @@
-export interface GetTestResultModel{
+export interface GetTestResultModel {
+    idQuestion: string;
     question: string;
     answerA: string;
     answerB: string;
     answerC: string;
     answerD: string;
     correctAnswer: string;
-    attachment: string;
+    answer: string;
+    idTest: string;
+
 }

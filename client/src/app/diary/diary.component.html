@@ -15,12 +15,11 @@
         <tr *ngFor="let classes of allclasseslist">
           <td (click)="showSubject($event, classes)">
             {{classes.nameS}}
-
           </td>
-
           <td>
             {{classes.description}}
           </td>
+
         </tr>
       </tbody>
     </table>

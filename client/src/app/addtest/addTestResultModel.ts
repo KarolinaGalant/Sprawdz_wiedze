@@ -1,4 +1,4 @@
 export interface AddTestResultModel {
-    idTest,
-    testName,
+    idTest: number;
+    testName: string;
 }

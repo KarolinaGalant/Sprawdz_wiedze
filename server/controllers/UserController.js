@@ -13,8 +13,13 @@ exports.register = (req,res) => {
         res.json(user);   
     })
 };
+exports.changepassword = (req,res) => {
+    UserService.changepassword(req.body, req.query.iduser).then((user)=>{
+        res.json(user);   
+    })
+};
 exports.addGroup = (req,res) => {
-    GroupService.addGroup(req.body).then((group)=>{
+    GroupService.addGroup(req.body, req.query.iduser).then((group)=>{
         res.json(group);    
     })
 };
@@ -24,7 +29,7 @@ exports.addUserToGroup = (req,res) => {
     })
 };
 exports.addTest = (req,res) => {
-    TestService.addTest(req.body).then((test)=>{
+    TestService.addTest(req.body, req.query.idTest).then((test)=>{
         res.json(test);    
     })
 };
@@ -39,7 +44,7 @@ exports.addAttachment = (req,res) => {
     })
 };   
 exports.classesList = (req,res) => {
-    GroupService.classesList(req.body).then((classesList)=>{
+    GroupService.classesList(req.body, req.query.iduser).then((classesList)=>{
         res.json(classesList);    
     })
 };
@@ -49,7 +54,12 @@ exports.allclasseslist = (req,res) => {
     })
 };
 exports.getTest = (req,res) => {
-    TestService.getTest(req.body).then((test)=>{
+    TestService.getTest(req.body, req.query.idTest).then((test)=>{
+        res.json(test);    
+    })
+};
+exports.getTestToCheck = (req,res) => {
+    TestService.getTestToCheck(req.body, req.query.idTest, req.query.idUserTest).then((test)=>{
         res.json(test);    
     })
 };
@@ -59,22 +69,32 @@ exports.getDoneTest = (req,res) => {
     })
 };
 exports.getRating = (req,res) => {
-    TestService.getRating(req.body).then((rating)=>{
+    TestService.getRating(req.body, req.query.iduser).then((rating)=>{
+        res.json(rating);    
+    })
+};
+exports.getTestRating = (req,res) => {
+    TestService.getTestRating(req.body, req.query.idsubject).then((rating)=>{
         res.json(rating);    
     })
 };
 exports.getTestList = (req,res) => {
-    TestService.getTestList(req.body).then((testList)=>{
+    TestService.getTestList(req.body, req.query.iduser).then((testList)=>{
         res.json(testList);    
     })
 };
 exports.addTestName = (req,res) => {
-    TestService.addTestName(req.body).then((testName)=>{
+    TestService.addTestName(req.body, req.query.idsubject).then((testName)=>{
         res.json(testName);    
     })
 };
 exports.getTestName = (req,res) => {
-    TestService.getTestName(req.body, req.query.idSubject).then((testName)=>{
+    TestService.getTestName(req.body, req.query.idsubject).then((testName)=>{
+        res.json(testName);    
+    })
+};
+exports.getTestNameSub = (req,res) => {
+    TestService.getTestNameSub(req.body, req.query.idsubject).then((testName)=>{
         res.json(testName);    
     })
 };
@@ -85,7 +105,7 @@ exports.addAnswer = (req,res) => {
     })
 };
 exports.getSubjectStudent = (req,res) => {
-    GroupService.getSubjectStudent(req.body).then((getSubjectStudent)=>{
+    GroupService.getSubjectStudent(req.body, req.query.idsubject).then((getSubjectStudent)=>{
         res.json(getSubjectStudent);    
     })
 };
@@ -105,4 +125,20 @@ exports.getTestNameById = (req,res) => {
         res.json(testName);    
     })
 };
+exports.getTestNameBySubject = (req,res) => {
+    TestService.getTestNameBySubject(req.body, req.query.idsubject).then((testName)=>{
+        res.json(testName);    
+    })
+};
+exports.showTestDoneByUser = (req,res) => {
+    TestService.showTestDoneByUser(req.body, req.query.idsubject).then((testDoneByUser)=>{
+        res.json(testDoneByUser);    
+    })
+};
+exports.addScore = (req,res) => {
+    TestService.addScore(req.body, req.query.iduser, req.query.idTest).then((score)=>{
+        res.json(score);    
+    })
+};
+
 

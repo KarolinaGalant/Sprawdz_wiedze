@@ -16,10 +16,10 @@
       <li class="nav-item" *ngIf="isAdmin">
         <a class="nav-link disabled" [routerLink]="['/classeslist']">Twoje Klasy</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item"*ngIf="isStudent">
         <a class="nav-link disabled " [routerLink]="['/content']">Dziennik</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item"*ngIf="isStudent">
         <a class="nav-link disabled " [routerLink]="['/diary']">Przedmioty</a>
       </li>
     </ul>

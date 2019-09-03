@@ -14,7 +14,7 @@
         </thead>
         <tbody>
           <tr *ngFor="let position of classeslist">
-            <td (click)=showSubjectAdmin($event)>
+            <td (click)="showSubjectAdmin($event, position)">
               {{position.nameS}}
             </td>
             <td>
@@ -24,6 +24,6 @@
           </tbody>
         </table>
       </div>
-</pre>
+  </pre>
 
 </div>

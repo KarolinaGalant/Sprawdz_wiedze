@@ -10,6 +10,7 @@ import { DataService } from '../data.service';
 })
 export class QuestionComponent implements OnInit {
   name: string = ''; 
+  subjecttest: any;
 
   // @Input()
   // questionsList;
@@ -17,7 +18,6 @@ export class QuestionComponent implements OnInit {
   constructor(private router: Router,private route: ActivatedRoute, private configService: ConfigService, private dataService: DataService) { }
 
   ngOnInit() {
-
   }
   question = '';
   answerA = '';
@@ -25,7 +25,6 @@ export class QuestionComponent implements OnInit {
   answerC = '';
   answerD = '';
   correctAnswer = '';
-  // attachment = '';
   closetests = [];
 
     addTest(formaddtest) {
@@ -36,12 +35,19 @@ export class QuestionComponent implements OnInit {
       formaddtest.controls["answerC"].value,
       formaddtest.controls["answerD"].value,
       formaddtest.controls["correctAnswer"].value,
-      // formaddtest.controls["attachment"].value,
+      formaddtest.controls["open"].value,
+      this.dataService.getTestId(),
       ).subscribe(formaddtest => this.closetests.push(formaddtest));
       this.router.navigateByUrl('/question');
+      
   }
-  // processfile(attachment){
-  //   const file: File = attachment.files[0];
-  //   console.log(file);
-  // }
+  addIdTestToSubjecttest(){
+    this.configService.addIdTestToSubjecttest(
+      this.dataService.getSubjectId(),
+      this.dataService.getTestId()
+    ).subscribe ((subjecttest) => {
+    this.subjecttest = subjecttest;
+    console.log(this.subjecttest);
+    });
+  }
 }

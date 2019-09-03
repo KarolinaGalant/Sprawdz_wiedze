@@ -4,45 +4,77 @@
 
   <h1>
     {{name}}
-   
-  </h1>
 
-  
+  </h1>
+  <br>
+  <br>
+  <h4>
+    Dostępne testy:
+  </h4>
+
   <div class="table-responsive">
     <table class="table">
       <thead>
         <tr>
-
           <td><b>Test</b></td>
-          <td><b>Ocena</b></td>
-
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let test of tests">
           <td (click)="onSelectSubject($event, test)">
             {{test.testName}}
-
-          </td>
-
-          <td>
           </td>
         </tr>
       </tbody>
     </table>
   </div>
+  
+  <div *ngIf="name; else close">
+    <button class="btn btn-default btn-mg " onclick="addToClass()" type="button">Śledź klasę</button>
+  </div>
+  <ng-template #close>
+  </ng-template>
 
 
-  <div *ngIf="name; else elseBlock">
+
+  <!-- <h2> Twoje Wyniki </h2>
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <td><b>Przedmiot</b></td>
+          <td><b>Nazwa testu</b></td>
+          <td><b>Ocena</b></td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let rating of rating">
+          <td>
+            {{rating.nameS}}
+          </td>
+          <td>
+            {{rating.testName}}
+          </td>
+          <td>
+            {{rating.rating}}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+ -->
+
+
+  <!-- <div *ngIf="name; else elseBlock">
     <div *ngFor="let student of myClass">
       {{myClass.nameS}}
     </div>
     <p>Opuść Klasę:<button class="btn btn-default btn-lg " type="button">Usuń </button></p>
-    
+
 
   </div>
   <ng-template #elseBlock>
     <p>Dodaj się do klasy: <button class="btn btn-default btn-lg " type="button">Dodaj </button></p>
-  </ng-template>
+  </ng-template> -->
   `
 </div>

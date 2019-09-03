@@ -12,7 +12,6 @@ import { RegisterComponent } from './register/register.component';
 import { TestComponent } from './test/test.component';
 import { ContentComponent } from './content/content.component';
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
-
 import { DataService } from './data.service';
 import { AddtestComponent } from './addtest/addtest.component';
 import { AddClassComponent } from './add-class/add-class.component';
@@ -21,11 +20,12 @@ import { ConfigService } from './config.service';
 import { ProfilComponent } from './profil/profil.component';
 import { DiaryComponent } from './diary/diary.component';
 import { ClassesListComponent } from './classes-list/classes-list.component';
-import { PeopleListComponent } from './people-list/people-list.component';
 import { TestsDoneComponent } from './tests-done/tests-done.component';
 import { CheckTestComponent } from './check-test/check-test.component';
 import { SubjectComponent } from './subject/subject.component';
 import { SubjectAdminComponent } from './subject-admin/subject-admin.component';
+import { NewTestComponent } from './new-test/new-test.component';
+import { ChangepasswordComponent } from './changepassword/changepassword.component';
 
 
 @NgModule({
@@ -44,11 +44,12 @@ import { SubjectAdminComponent } from './subject-admin/subject-admin.component';
     ProfilComponent,
     DiaryComponent,
     ClassesListComponent,
-    PeopleListComponent,
     TestsDoneComponent,
     CheckTestComponent,
     SubjectComponent,
     SubjectAdminComponent,
+    NewTestComponent,
+    ChangepasswordComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,6 @@
 export interface StudentResultModel {
-    iduser,
-    idSubject,
+    iduser: string;
+    name: string;
+    surname: string;
+    rating: string;
 }

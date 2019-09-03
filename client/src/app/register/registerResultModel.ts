@@ -4,4 +4,5 @@ export interface RegisterResultModel {
     mail: string;
     login: string;
     password: string;
+    role:string;
   }

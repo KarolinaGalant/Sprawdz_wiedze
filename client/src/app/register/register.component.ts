@@ -26,7 +26,8 @@ export class RegisterComponent implements OnInit {
       formreg.controls["surname"].value,
       formreg.controls["mail"].value,
       formreg.controls["login"].value,
-      formreg.controls["password"].value,      
+      formreg.controls["password"].value,
+      formreg.controls["role"].value,      
     ).subscribe(formreg => this.users.push(formreg));
     this.router.navigateByUrl('/online');
   }

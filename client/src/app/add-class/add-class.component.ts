@@ -14,14 +14,14 @@ export class AddClassComponent {
   nameS = '';
   description = '';
 
-constructor(private configService: ConfigService, private formBuilder: FormBuilder, private router: Router, private dataService: DataService) {
+  constructor(private configService: ConfigService, private formBuilder: FormBuilder, private router: Router, private dataService: DataService) {
   }
 
   addClass(formaddclass) {
     this.configService.addClass(
       formaddclass.controls["nameS"].value,
       formaddclass.controls["description"].value,
-      this.dataService.getLogin()
+      this.dataService.getIdUser()
     ).subscribe(formaddclass => this.subject.push(formaddclass));
     this.router.navigateByUrl('/classeslist');
   }

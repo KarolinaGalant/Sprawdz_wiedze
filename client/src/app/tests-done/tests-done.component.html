@@ -11,25 +11,28 @@
         <div *ngFor="let test of tests; let i = index">
           <div class="quest">
             Zadanie {{i+1}} {{test.question}}
-        
-            A) {{test.answerA}}
+            <div *ngIf="test.open==1; else close">  
+              <label>Poprawdna odpowiedź:</label>
+              <textarea class="form-control"  [(ngModel)]="answers[i]" name="answer" rows="3"></textarea>
+            </div>
+              <ng-template #close>
+                  A) {{test.answerA}}
 
-            B) {{test.answerB}}
-
-            C) {{test.answerC}}
-
-            D) {{test.answerD}}
-
-            Poprawna Odpowiedź: <select type="text" ngModel name="answer" class="form-control">
+                  B) {{test.answerB}}
+      
+                  C) {{test.answerC}}
+      
+                  D) {{test.answerD}}
+            Poprawna Odpowiedź: <select type="text" [(ngModel)]="answers[i]" name="answer" class="form-control">
                 <option>A</option>
                 <option>B</option>
                 <option>C</option>
                 <option>D</option>
               </select>
-            
+            </ng-template>
+            </div>
             </div>
           </div>
-        </div>
         <input type="submit" value="Zakończ test" class="btn btn-default" >
       </form>
 

@@ -1,14 +1,14 @@
 var constants = require('../db');
 console.log(constants.ConnectToDB);
 
-module.exports.addGroup = (group) => {
+module.exports.addGroup = (group, iduser) => {
     return new Promise((resolve, reject) => {
         let a = {
             nameS: group.nameS,
             description: group.description,
-            login: group.login,
+            iduser: group.iduser,
         }
-        constants.ConnectToDB.query('INSERT INTO subject SET ? ', a, (err, rows, fields) => {
+        constants.ConnectToDB.query('INSERT INTO subject SET ?', a, (err, rows, fields) => {
             if (err) {
                 throw err;
             }
@@ -38,9 +38,9 @@ module.exports.addUserToGroup = (userToGroup) => {
     })
 }
 
-module.exports.classesList = (classesList) => {
+module.exports.classesList = (classesList, iduser) => {
     return new Promise((resolve, reject) => {
-        constants.ConnectToDB.query('SELECT nameS, description FROM subject WHERE login=?  ', classesList.login, (err, rows, fields) => {
+        constants.ConnectToDB.query('SELECT s.idsubject, s.nameS, s.description, s.iduser FROM subject as s  WHERE s.iduser= '+(iduser), classesList, (err, rows, fields) => {
             if (err) {
                 throw err;
             }
@@ -55,7 +55,7 @@ module.exports.classesList = (classesList) => {
 }
 module.exports.allclasseslist = (allclasseslist) => {
     return new Promise((resolve, reject) => {
-        constants.ConnectToDB.query('SELECT idSubject, nameS, description FROM subject ', allclasseslist, (err, rows, fields) => {
+        constants.ConnectToDB.query('SELECT idsubject, nameS, description FROM subject ', allclasseslist, (err, rows, fields) => {
             if (err) {
                 throw err;
             }
@@ -83,9 +83,9 @@ module.exports.getSubject = (getSubject) => {
         });
     })
 }
-module.exports.getSubjectStudent = (getSubjectStudent) => {
+module.exports.getSubjectStudent = (getSubjectStudent, idsubject) => {
     return new Promise((resolve, reject) => {
-        constants.ConnectToDB.query('SELECT u.name, u.surname FROM users as u INNER JOIN record as r ON r.iduser=u.iduser INNER JOIN subject as s ON s.idsubject=r.idSubject ', getSubjectStudent.login, (err, rows, fields) => {
+        constants.ConnectToDB.query('SELECT u.name, u.surname FROM users as u INNER JOIN record as r ON r.iduser=u.iduser INNER JOIN subject as s ON s.idsubject=r.idSubject WHERE s.idsubject='+ (idsubject), getSubjectStudent, (err, rows, fields) => {
             if (err) {
                 throw err;
             }

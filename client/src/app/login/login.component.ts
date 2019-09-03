@@ -30,18 +30,19 @@ export class LoginComponent {
     console.log(formlogin.controls["login"].value)
     this.configService.login(
       formlogin.controls["login"].value,
-      formlogin.controls["password"].value
+      formlogin.controls["password"].value,
+      formlogin.controls["role"].value,
     )
       .subscribe(
         r => {
           if (r.length) {
             this.dataService.setToken("zalogowano");
             this.dataService.setCredentials(
-
               formlogin.controls["login"].value,
-              formlogin.controls["password"].value
+              formlogin.controls["password"].value,
+              formlogin.controls["role"].value
             )
-            this.router.navigateByUrl('/online');
+            this.router.navigateByUrl('/profil');
           }
         },
         r => {

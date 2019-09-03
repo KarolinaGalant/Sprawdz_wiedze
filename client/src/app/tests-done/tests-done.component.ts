@@ -12,7 +12,7 @@ import { DataService } from '../data.service';
   styleUrls: ['./tests-done.component.css']
 })
 export class TestsDoneComponent implements OnInit {
-  tests: TestDoneResultModel;
+  tests: TestDoneResultModel[];
   testName: AddTestResultModel;
   answers: any;
   answer: AnswerResultModel;
@@ -36,10 +36,18 @@ export class TestsDoneComponent implements OnInit {
     })
   }
   addAnswer(formaddanswer) {
-    this.configService.addAnswer(
-      formaddanswer.controls["answer"].value,
-      this.dataService.getQuestionId()
-    ).subscribe(formaddanswer => this.answers.push(formaddanswer));
+    console.log(this.answers);
+    this.answers.forEach((element, index) => {
+      this.configService.addAnswer(
+        this.dataService.getTestId(),
+        this.dataService.getLogin(),
+        element,
+        this.tests[index].idQuestion,
+        this.dataService.getIdUser()
+      ).subscribe(formaddanswer => this.answers.push(formaddanswer));
+    });
+  
+
     console.log(this.answers);
     this.router.navigateByUrl('/content');
   }
@@ -52,9 +60,10 @@ export class TestsDoneComponent implements OnInit {
       localStorage.getItem("answer2"),
       localStorage.getItem("answer3"),
       localStorage.getItem("answer4"),
-      this.dataService.getTestId()
+      +localStorage.getItem("open"),
+      this.dataService.getTestId(),
     ).subscribe((tests) => {this.tests = tests;
-      // this.answers = new Array(tests.length);
+      this.answers = new Array(tests.length);
       console.log(this.tests);
       });
 

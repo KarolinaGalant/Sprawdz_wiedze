@@ -10,22 +10,22 @@ import { DataService } from '../data.service';
   styleUrls: ['./diary.component.css']
 })
 export class DiaryComponent implements OnInit {
-  allclasseslist: AllClassesResultModel;
+  allclasseslist: any;
 
   constructor(private configService: ConfigService, private router: Router, private dataService: DataService) { }
 
   ngOnInit() {
     this.showAllClasses();
   }
-  showSubject(subject, item: AllClassesResultModel) {
+  showSubject(subject, classes: AllClassesResultModel) {
     this.router.navigate([`/subject/${subject.target.innerHTML}`])
     console.log(subject.target.innerHTML);
-    this.dataService.setSubjectId(item.idSubject+'');
+    this.dataService.setSubjectId(classes.idsubject);
   }
 
   showAllClasses() {
     this.configService.getAllClasses(
-      null,
+      localStorage.getItem('idsubject'),
       localStorage.getItem('nameS'),
       localStorage.getItem('description'),
     ).subscribe((allclasseslist) => {
@@ -33,4 +33,5 @@ export class DiaryComponent implements OnInit {
       console.log(this.allclasseslist);
     });
   }
+
 }

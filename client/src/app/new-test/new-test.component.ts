@@ -1,26 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { ConfigService } from '../config.service';
 import { Router } from '@angular/router';
-import { GetTestResultModel } from './getTestResultModel';
-import { AddTestResultModel } from '../addtest/addTestResultModel';
 import { DataService } from '../data.service';
+import { GetTestResultModel } from '../test/getTestResultModel';
+import { AddTestResultModel } from '../addtest/addTestResultModel';
 
 @Component({
-  selector: 'app-admin',
-  templateUrl: './test.component.html',
-  styleUrls: ['./test.component.css']
+  selector: 'app-new-test',
+  templateUrl: './new-test.component.html',
+  styleUrls: ['./new-test.component.css']
 })
-export class TestComponent implements OnInit {
+export class NewTestComponent implements OnInit {
+
+  constructor(private configService: ConfigService, private router: Router, private dataService: DataService) { }
   test: GetTestResultModel;
   testName: AddTestResultModel;
-  
-  constructor(private configService: ConfigService, private router: Router, private dataService: DataService) { }
 
   ngOnInit() {
-    this.showTest();
-    this.showTestName();
   }
-
   showTest(){
     this.configService.getTest(
       localStorage.getItem("question"),
@@ -46,4 +43,5 @@ export class TestComponent implements OnInit {
       console.log(this.testName);
     })
   }
+
 }

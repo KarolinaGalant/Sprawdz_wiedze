@@ -1,3 +1,70 @@
-<p>
-  check-test works!
-</p>
+<div class="checktest">
+
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <td><b>Pytanie</b></td>
+                <td><b>Odp</b></td>
+                <td><b></b></td>
+                <td><b></b></td>
+                <td><b></b></td>
+                <td><b>Poprawna odpowiedź</b></td>
+                <td><b>Udzielona Odpowiedź</b></td>
+              </tr>
+              <tr>
+                <td><b></b></td>
+                <td><b>A</b></td>
+                <td><b>B</b></td>
+                <td><b>C</b></td>
+                <td><b>D</b></td>
+                <td><b></b></td>
+                <td><b></b></td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let test of test">
+                <td >
+    {{test.question}}
+                </td>
+                <td>
+    {{test.answerA}}
+                </td>
+                <td>
+    {{test.answerB}}
+                </td>
+                <td>
+    {{test.answerC}}
+                </td>
+                <td>
+    {{test.answerD}}
+                </td> 
+                <td>
+    {{test.correctAnswer}}
+                </td> 
+                <td>
+    {{test.answer}}
+                </td>            
+                </tr>
+              </tbody>
+            </table>
+            <form  #formaddscore = "ngForm" class="form-inline" (ngSubmit)="addScore(formaddscore)" novalidate>
+                <div class="form-group">
+                    &nbsp;&nbsp;&nbsp;
+                  <label>Ilość punktów:</label>
+                  &nbsp;&nbsp;&nbsp;
+                  <input type="text" class="form-control"  ngModel name="points" required #className="ngModel">
+                  &nbsp;&nbsp;&nbsp;
+                  <label>Ocena</label>
+                  &nbsp;&nbsp;&nbsp;
+                  <input type="text" class="form-control"  ngModel name="rating" required #className="ngModel">
+                  </div>
+                  &nbsp;&nbsp;&nbsp;
+                <input type="submit" value="Zapisz ocenę" class="btn btn-default"> 
+                </form>
+
+
+
+
+          </div>
+</div>

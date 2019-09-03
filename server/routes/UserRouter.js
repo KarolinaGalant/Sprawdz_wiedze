@@ -2,7 +2,6 @@ var express = require('express');
 var router = express.Router();
 const UserController = require('../controllers/UserController');
 
-
 router.post('/login', UserController.log);
 router.post('/register', UserController.register);
 router.post('/addGroup', UserController.addGroup);
@@ -23,7 +22,12 @@ router.post('/getTestName', UserController.getTestName);
 router.post('/getDoneTest', UserController.getDoneTest);
 router.post('/addAnswer', UserController.addAnswer);
 router.post('/getTestNameById', UserController.getTestNameById);
-
+router.post('/getTestNameBySubject', UserController.getTestNameBySubject);
+router.post('/getTestRating', UserController.getTestRating);
+router.post('/getTestNameSub', UserController.getTestNameSub);
+router.post('/getTestToCheck', UserController.getTestToCheck);
+router.post('/showTestDoneByUser', UserController.showTestDoneByUser);
+router.post('/addScore', UserController.addScore);
+router.post('/changepassword', UserController.changepassword);
 
 module.exports = router;
-

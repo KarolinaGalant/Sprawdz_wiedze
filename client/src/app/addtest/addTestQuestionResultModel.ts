@@ -5,5 +5,5 @@ export interface AddTestQuestionResultModel {
   answerC,
   answerD,
   correctAnswer,
-  // attachment,
+  open,
 }

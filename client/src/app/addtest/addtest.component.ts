@@ -12,32 +12,25 @@ import { AddTestResultModel } from './addTestResultModel';
   styleUrls: ['./addtest.component.css']
 })
 export class AddtestComponent implements OnInit {
-  iduser: LoginResultModel;
-  user: LoginResultModel;
-  testName= [];
+  testName = [];
 
   constructor(private configService: ConfigService, private dataService: DataService, private router: Router, private formBuilder: FormBuilder) {
-  
+
   }
   ngOnInit() {
-    this.getIdUser();
   }
-  getIdUser() {
-    this.configService.getIdUser(
-      localStorage.getItem("login"),
-      localStorage.getItem("password"),
-      localStorage.getItem("iduser"),
-    ).subscribe((user) => {
-    this.user = user;
-      console.log(this.user);
 
-    });
-  }
-  addTestName(formaddtest){
+  addTestName(formaddtest) {
     this.configService.addTestName(
       formaddtest.controls["testName"].value,
-    ).subscribe(formaddtest => this.testName.push(formaddtest));
-    this.router.navigateByUrl('/question');
+      this.dataService.getSubjectId()
+    ).subscribe(formaddtest => {
+      this.testName.push(formaddtest),
+      console.log(formaddtest),
+      this.dataService.setTestId(formaddtest.insertId),
+      this.router.navigate([`/question`])
+
+    })
   }
 
 

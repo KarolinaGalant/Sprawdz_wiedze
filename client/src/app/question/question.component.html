@@ -12,9 +12,6 @@
     </div> -->
     <div class="custom-controls-stacked">
       <div class="custom-control custom-radio mb-3">
-        <input type="checkbox" ngModel name="closed" value="value"
-          onclick="document.getElementById('closed').style.display = this.checked ? 'none' : 'block'; this.form.elements['answerA'].disabled = this.form.elements['answerB'].disabled = this.form.elements['answerC'].disabled = this.form.elements['answerD'].disabled  = this.checked">Odpowiedż
-        zamknięta
         <div id="closed">
 
           <br>
@@ -26,7 +23,7 @@
           <input type="text" ngModel name="answerC" class="form-control">
           <span>Odpowiedź D</span>
           <input type="text" ngModel name="answerD" class="form-control">
-          
+      
           <label for="correctAnswer">Poprawna odpowiedź</label>
           <select type="text" ngModel name="correctAnswer" class="form-control">
             <option>A</option>
@@ -47,10 +44,11 @@
     </div>
     <br>
     <div class="form-group">
+      <input type="reset" value="Wyczyść formularz" class="btn float-right login_btn">
       <input type="submit" value="Następne pytanie" class="btn float-right login_btn">
     </div>
   </form>
-  <button class="btn btn-default btn-mg "  [routerLink]="['/test']" type="button">Dodaj test </button>
+  <button class="btn btn-default btn-mg "  [routerLink]="['/newTest']" type="button">Dodaj test </button>
 
 
 </div>

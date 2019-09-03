@@ -1,17 +1,21 @@
 <div class="subject">
 
-  <p>
+  <h3>
     {{ name }}
+  </h3>
 
+  <br>
+  <br>
+  <br>
+  <br>
+  <h1>Uczniowie należączy do klasy:</h1>
 
-  </p>
   <div class="table-responsive">
     <table class="table">
       <thead>
         <tr>
           <td><b>Imię</b></td>
           <td><b>Nazwisko</b></td>
-          <td><b>Oceny</b></td>
         </tr>
       </thead>
       <tbody>
@@ -26,5 +30,58 @@
       </tbody>
     </table>
   </div>
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <h1>Dostępne testy:</h1>
+  <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <td><b>Testy</b></td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let testName of testName">
+            <td (click)="showTestQuestion($event, testName)">
+              {{testName.testName}}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <br>
+      <br>
+      <br>
+      <h1>Zrobione testy do sprawdzenia:</h1>
+      
+      <table class="table">
+        <thead>
+          <tr>
+
+            <td><b>Imię</b></td>
+            <td><b>Nazwisko</b></td>
+            <td><b>Test</b></td>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let testDoneByUser of testDoneByUser">
+            <td>
+              {{testDoneByUser.name}}
+            </td>
+            <td>
+              {{testDoneByUser.surname}}
+            </td>
+            <td (click)="selectTest($event, testDoneByUser)">
+              {{testDoneByUser.testName}}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      <br>
   <button [routerLink]="['/addtest']" class="btn btn-default btn-lg " type="button" >Dodaj test</button>
 </div>

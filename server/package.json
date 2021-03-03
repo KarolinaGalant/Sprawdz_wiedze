@@ -18,7 +18,7 @@
     "express-session": "^1.16.1",
     "morgan": "^1.9.1",
     "mustache": "^3.0.1",
-    "pug": "^2.0.3",
+    "pug": "^3.0.1",
     "sesion": "0.0.0",
     "session": "^0.1.0"
   },
